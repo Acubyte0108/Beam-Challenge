@@ -1,10 +1,13 @@
 import type { Config } from "tailwindcss"
 import tailwindcssAnimate from "tailwindcss-animate"
+//@ts-ignore
 import { fontFamily } from "tailwindcss/defaultTheme"
 
 const config = {
   darkMode: ["class"],
   content: [
+    "./index.html",
+    "./src/**/*.{ts,tsx,js,jsx}",
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
     "../../packages/ui/src/components/**/*.{ts,tsx}",
