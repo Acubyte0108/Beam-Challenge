@@ -38,7 +38,7 @@ function App() {
         >
           Click me! Count is {count}
         </button> */}
-        <Button size="sm" variant="outline">Button</Button>
+        <Button size="sm">Button</Button>
       </div>
     </>
   )
