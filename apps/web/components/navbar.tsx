@@ -1,10 +1,11 @@
 "use client"
 
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@workspace/ui/components/button";
 import { BeamLogoLight } from "@workspace/ui/components/beam-components/icons";
 import Link from "next/link";
-import { useState } from "react";
+
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,13 +49,13 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             {isOpen ? (
-              <button onClick={() => setIsOpen(false)}>
+              <Button variant="outline" onClick={() => setIsOpen(false)}>
                 <X className="h-6 w-6" />
-              </button>
+              </Button>
             ) : (
-              <button onClick={() => setIsOpen(true)}>
+              <Button variant='outline' onClick={() => setIsOpen(true)}>
                 <Menu className="h-6 w-6" />
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -62,25 +63,28 @@ export const Navbar = () => {
 
       {/* Background Overlay (Covers only content, not navbar) */}
       {isOpen && (
-        <div 
-          className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-40 transition-opacity duration-300"
+        <div
+          className="fixed inset-0 top-[5rem] bg-black/50 h-screen w-full z-40 transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
 
       {/* Mobile Menu (Smooth Drawer from Behind Navbar) */}
       <div
-        className={`absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl transition-transform duration-500 ease-in-out ${
-          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-        } z-40`}
+        className={`absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+          } z-40`}
       >
         <div className="p-6 flex flex-col items-center space-y-6">
-          <Link href="/news" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-            Newsroom
-          </Link>
-          <Link href="/about" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-            About us
-          </Link>
+          <Button asChild variant="ghost" onClick={() => setIsOpen(false)}>
+            <Link href="/news" className="text-lg font-medium" >
+              Newsroom
+            </Link>
+          </Button>
+          <Button asChild variant="ghost" onClick={() => setIsOpen(false)}>
+            <Link href="/about" className="text-lg font-medium">
+              About us
+            </Link>
+          </Button>
         </div>
       </div>
     </nav>
