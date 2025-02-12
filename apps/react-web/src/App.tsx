@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@workspace/ui/components/button'
-import { BeamButton } from "@workspace/ui/components/beam-components/index"
+import { BeamButton } from "@workspace/ui/components/beam-components/button"
 import { BeamLogoLight } from "@workspace/ui/components/beam-components/icons"
 
 type Post = {

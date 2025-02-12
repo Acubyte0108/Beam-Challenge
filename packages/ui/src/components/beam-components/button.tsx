@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, ButtonProps } from '../button.js'
+import { Button, ButtonProps } from '@workspace/ui/components/button'
 
 const BeamButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
