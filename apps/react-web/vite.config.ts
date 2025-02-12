@@ -1,20 +1,33 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    svgr({
+      // svgr options: https://react-svgr.com/docs/options/
+      svgrOptions: {
+        exportType: "default",
+        ref: true,
+        svgo: false,
+        titleProp: true,
+      },
+      include: "**/*.svg",
+    }),
+  ],
   build: {
-    minify: "esbuild", // Fast minification
+    minify: "esbuild",
     rollupOptions: {
-      treeshake: true, // Removes unused code
+      treeshake: true,
     },
   },
   esbuild: {
     treeShaking: true,
-    drop: ["console", "debugger"], // Remove console logs & debuggers in production
+    drop: ["console", "debugger"],
   },
   server: {
     port: 3001,
   },
-})
+});
