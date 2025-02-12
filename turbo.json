@@ -5,7 +5,8 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "env": ["FAKER_SEED", "TOTAL_FAKE_POST_ITEMS"]
     },
     "lint": {
       "dependsOn": ["^lint"]
