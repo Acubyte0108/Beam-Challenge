@@ -1,6 +1,5 @@
 import { Menu, X } from "lucide-react";
 import { Button } from "@workspace/ui/components/button";
-import { Sheet, SheetContent, SheetTrigger } from "@workspace/ui/components/sheet";
 import { BeamLogoLight } from "@workspace/ui/components/beam-components/icons";
 import Link from "next/link";
 
