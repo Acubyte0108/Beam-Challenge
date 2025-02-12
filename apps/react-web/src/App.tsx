@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@workspace/ui/components/button'
+import { BeamButton } from "@workspace/ui/components/beam-components/button"
+import { BeamLogoLight } from "@workspace/ui/components/beam-components/icons"
 
 type Post = {
   id: number
@@ -38,6 +40,10 @@ function App() {
         Welcome to My App
       </header>
       <p className="text-lg mb-4">Test fetching from Nextjs app</p>
+
+      <BeamLogoLight className='bg-cyan-300'/>
+
+      {/* <BeamButton>Beam Button</BeamButton> */}
 
       <Button size="sm" onClick={fetchPosts}>
         Fetch Posts
