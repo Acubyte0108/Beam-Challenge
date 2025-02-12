@@ -41,33 +41,38 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-10">
-            <Button asChild variant="ghost">
-              <Link href="/news">Newsroom</Link>
-            </Button>
-            <Button asChild variant="ghost">
-              <Link href="/about">About us</Link>
-            </Button>
+            <Link href="/news" className="text-lg font-medium">Newsroom</Link>
+            <Link href="/about" className="text-lg font-medium">About us</Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             {isOpen ? (
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+              <button onClick={() => setIsOpen(false)}>
                 <X className="h-6 w-6" />
-              </Button>
+              </button>
             ) : (
-              <Button variant="ghost" size="icon" onClick={() => setIsOpen(true)}>
+              <button onClick={() => setIsOpen(true)}>
                 <Menu className="h-6 w-6" />
-              </Button>
+              </button>
             )}
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu (Smooth Drawer from Bottom of Navbar) */}
+      {/* Background Overlay (Covers only content, not navbar) */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-40 transition-opacity duration-300"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
+
+      {/* Mobile Menu (Smooth Drawer from Behind Navbar) */}
       <div
-        className={`absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-          } z-40`}
+        className={`absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl transition-transform duration-500 ease-in-out ${
+          isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        } z-40`}
       >
         <div className="p-6 flex flex-col items-center space-y-6">
           <Link href="/news" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
