@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@workspace/ui/components/button'
 import { BeamButton } from "@workspace/ui/components/beam-components/index"
-import BeamLogo from "@workspace/ui/assets/icons/Beam_logo_light.svg"
+import BeamLogo from "@workspace/ui/components/icons/beam"
 
 type Post = {
   id: number
@@ -41,7 +41,7 @@ function App() {
       </header>
       <p className="text-lg mb-4">Test fetching from Nextjs app</p>
 
-      <BeamLogo />
+      <BeamLogo className='bg-cyan-300'/>
 
       {/* <BeamButton>Beam Button</BeamButton> */}
 
