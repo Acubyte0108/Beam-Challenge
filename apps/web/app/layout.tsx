@@ -2,8 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemesProvider } from "@workspace/ui/components/customs/themes-provider"
-import { BeamNavbar, NavItem } from "@workspace/ui/components/beam-components/navbar"
-
+import { BeamHeader, NavItem } from "@workspace/ui/components/beam-components/header"
 import Link from "next/link"
 
 const fontSans = Geist({
@@ -41,7 +40,7 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
         <ThemesProvider>
-          <BeamNavbar links={nextLinks} />
+          <BeamHeader links={nextLinks} />
           <main className="pt-20">
             {children}
           </main>

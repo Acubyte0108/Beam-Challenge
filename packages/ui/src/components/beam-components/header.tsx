@@ -10,7 +10,7 @@ export type NavItem = {
   component: JSX.Element;
 };
 
-export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
+export const BeamHeader = ({ links }: { links: NavItem[] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   if (links.length > 4) {
@@ -28,24 +28,21 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
   };
 
   return (
-    <nav className="fixed w-full h-20 z-50 bg-white">
+    <header className="fixed w-full h-20 z-50 bg-white">
       <div className="relative z-50 h-full">
         <div className="container mx-auto px-4 md:px-0 flex items-center justify-between h-full">
-          {/* Logo */}
           <div className="flex items-center space-x-4">
             <BeamLogoDark className="h-auto w-auto" />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-10">
             {links.map(({ component }, index) => (
               <BeamButton key={index} variantType="link" asChild>
                 {component}
               </BeamButton>
             ))}
-          </div>
+          </nav>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden transition-opacity duration-300 ease-in-out">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -54,7 +51,6 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
         </div>
       </div>
 
-      {/* Mobile Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -68,21 +64,20 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu */}
       <motion.div
         className="absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl z-40"
         initial="hidden"
         animate={isOpen ? "visible" : "hidden"}
         variants={menuVariants}
       >
-        <div className="p-6 flex flex-col items-center space-y-6">
+        <nav className="p-6 flex flex-col items-center space-y-6">
           {links.map(({ component }, index) => (
             <BeamButton key={index} variantType="link" asChild onClick={() => setIsOpen(false)}>
               {component}
             </BeamButton>
           ))}
-        </div>
+        </nav>
       </motion.div>
-    </nav>
+    </header>
   );
 };
