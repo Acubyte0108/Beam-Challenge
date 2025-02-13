@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@workspace/ui/components/button";
 import { BlogCard } from "@workspace/ui/components/beam-components/blog-card";
+import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
 import Image from "next/image";
 
@@ -55,16 +55,12 @@ export const NewsSection = () => {
     }
   };
 
-  // Initial Fetch
   useEffect(() => {
     fetchPosts();
-  }, []); // Runs only on mount
+  }, []);
 
   return (
-    <section className="container mx-auto py-12">
-      <h2 className="text-center text-2xl font-bold mb-8">News Room</h2>
-
-      {/* News Grid */}
+    <section className="py-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {posts.map((post) => (
           <BlogCard
@@ -94,15 +90,15 @@ export const NewsSection = () => {
         ))}
       </div>
 
-      {/* See More Button - Only Show if `hasMore` is true */}
       {hasMore && (
         <div className="flex justify-center mt-8">
-          <Button
+          <BeamButton
             onClick={fetchPosts}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-md"
+            size="lg"
+            className="w-1/3"
           >
             {loading ? "Loading..." : "See more"}
-          </Button>
+          </BeamButton>
         </div>
       )}
     </section>
