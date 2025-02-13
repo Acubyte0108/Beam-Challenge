@@ -60,7 +60,7 @@ export const NewsSection = () => {
   }, []);
 
   return (
-    <section className="py-12">
+    <section className="md:py-12 py-2">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {posts.map((post) => (
           <BlogCard
@@ -95,7 +95,7 @@ export const NewsSection = () => {
           <BeamButton
             onClick={fetchPosts}
             size="lg"
-            className="w-1/3"
+            className="md:w-1/3 w-full"
           >
             {loading ? "Loading..." : "See more"}
           </BeamButton>
