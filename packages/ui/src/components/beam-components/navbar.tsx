@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons";
+import { BeamButton } from "@workspace/ui/components/beam-components/button";
 
 export type NavItem = {
   component: JSX.Element;
@@ -35,9 +35,9 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-10">
             {links.map(({ component }, index) => (
-              <Button key={index} variant="ghost" asChild>
+              <BeamButton key={index} variantType="link" asChild>
                 {component}
-              </Button>
+              </BeamButton>
             ))}
           </div>
 
@@ -73,9 +73,9 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
       >
         <div className="p-6 flex flex-col items-center space-y-6">
           {links.map(({ component }, index) => (
-            <Button key={index} variant="ghost" asChild onClick={() => setIsOpen(false)}>
+            <BeamButton key={index} variantType="link" asChild onClick={() => setIsOpen(false)}>
               {component}
-            </Button>
+            </BeamButton>
           ))}
         </div>
       </motion.div>
