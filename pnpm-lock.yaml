@@ -93,9 +93,6 @@ importers:
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      framer-motion:
-        specifier: ^12.4.2
-        version: 12.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react:
         specifier: 0.456.0
         version: 0.456.0(react@19.0.0)
@@ -192,6 +189,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      framer-motion:
+        specifier: ^12.4.2
+        version: 12.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react:
         specifier: 0.456.0
         version: 0.456.0(react@19.0.0)

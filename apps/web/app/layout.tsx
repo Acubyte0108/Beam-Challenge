@@ -1,9 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
-import { Providers } from "@/components/providers"
-import { Navbar, NavItem } from "@/components/navbar"
-import { Container } from "@/components/container"
+import { ThemesProvider } from "@workspace/ui/components/customs/themes-provider"
+import { Container } from "@workspace/ui/components/customs/container"
+import { BeamNavbar, NavItem } from "@workspace/ui/components/beam-components/navbar"
+
 import Link from "next/link"
 
 const fontSans = Geist({
@@ -32,12 +33,12 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
-        <Providers>
-          <Navbar links={nextLinks} />
+        <ThemesProvider>
+          <BeamNavbar links={nextLinks} />
           <Container>
             {children}
           </Container>
-        </Providers>
+        </ThemesProvider>
       </body>
     </html>
   )
