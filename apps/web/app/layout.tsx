@@ -42,7 +42,7 @@ export default function RootLayout({
         <ThemesProvider>
           <main className="flex flex-col h-screen">
             <BeamHeader links={nextLinks} />
-            <div className="flex-1 w-full pt-20 overflow-auto">{children}</div>
+            <div className="flex-1 w-full pt-20">{children}</div>
           </main>
         </ThemesProvider>
       </body>
