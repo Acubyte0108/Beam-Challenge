@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@workspace/ui/components/button";
 import { motion } from "framer-motion";
-import { BeamLogoLight } from "@workspace/ui/components/beam-components/icons";
+import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons";
 import Link from "next/link";
 
 
@@ -27,7 +27,7 @@ export const Navbar = () => {
         <div className="container mx-auto p-4 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-4">
-            <BeamLogoLight className="h-auto w-auto" />
+            <BeamLogoDark className="h-auto w-auto" />
           </div>
 
           {/* Desktop Navigation */}
@@ -51,7 +51,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Background Overlay (Appears slightly before the menu slides down) */}
       <motion.div
         className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-40"
         initial="hidden"
@@ -60,7 +59,6 @@ export const Navbar = () => {
         onClick={() => setIsOpen(false)} // Clicking outside closes menu
       />
 
-      {/* Mobile Menu (Drawer appears slightly after background darkens) */}
       <motion.div
         className="absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl z-40"
         initial="hidden"
