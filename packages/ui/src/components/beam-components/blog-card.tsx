@@ -1,4 +1,9 @@
-import { Card, CardHeader, CardFooter, CardContent } from "@workspace/ui/components/card";
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardContent,
+} from "@workspace/ui/components/card";
 
 type BlogCardProps = {
   imageComponent: React.ReactNode;
@@ -6,23 +11,27 @@ type BlogCardProps = {
   description: string;
 };
 
-export const BlogCard = ({ imageComponent, title, description }: BlogCardProps) => {
+export const BlogCard = ({
+  imageComponent,
+  title,
+  description,
+}: BlogCardProps) => {
   return (
-    <Card className="rounded-xl overflow-hidden shadow-sm border border-gray-200">
-      {/* Image Section */}
-      <CardHeader className="h-40 bg-gray-200 flex items-center justify-center p-0">
+    <Card className="rounded-xl h-full cursor-pointer">
+      <CardHeader className="p-0 h-1/2">
         {imageComponent}
       </CardHeader>
 
-      {/* Content Section */}
-      <CardContent className="p-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
-        <p className="text-gray-600 text-sm">{description}</p>
+      <CardContent className="h-2/5 p-6 pb-0 flex flex-col gap-y-6">
+        <h3 className="text-2xl font-semibold">{title}</h3>
+        <p className="text-[#363E59] text-lg">{description}</p>
       </CardContent>
 
-      {/* Footer with Read More Link */}
-      <CardFooter className="p-4">
-        <a href="#" className="text-blue-600 font-medium text-sm flex items-center gap-1 hover:underline">
+      <CardFooter className="h-1/10 p-0 px-6">
+        <a
+          href="#"
+          className="text-[#265BEA] font-semibold text-lg flex items-center gap-1 hover:underline"
+        >
           Read more →
         </a>
       </CardFooter>
