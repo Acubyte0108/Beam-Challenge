@@ -28,9 +28,9 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
   };
 
   return (
-    <header className="fixed w-full h-20 z-50 bg-white">
+    <header className="fixed top-0 left-0 w-full h-20 z-50 bg-white">
       <div className="relative z-50 h-full">
-        <div className="container mx-auto px-4 md:px-0 flex items-center justify-between h-full">
+        <div className="container mx-auto px-4 md:px-10 flex items-center justify-between h-full">
           <div className="flex items-center space-x-4">
             <BeamLogoDark className="h-auto w-auto" />
           </div>

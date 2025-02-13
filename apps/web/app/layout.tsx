@@ -40,9 +40,9 @@ export default function RootLayout({
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
         <ThemesProvider>
-          <BeamHeader links={nextLinks} />
-          <main className="pt-20">
-            {children}
+          <main className="flex flex-col h-screen">
+            <BeamHeader links={nextLinks} />
+            <div className="flex-1 w-full pt-20 overflow-auto">{children}</div>
           </main>
         </ThemesProvider>
       </body>

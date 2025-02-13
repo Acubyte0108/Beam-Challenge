@@ -1,8 +1,14 @@
-import * as React from "react"
+import * as React from "react";
+import { cn } from "@workspace/ui/lib/utils"
 
-export const Container = ({ children }: { children: React.ReactNode }) => {
+type ContainerProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+export const Container = ({ className, children }: ContainerProps) => {
   return (
-    <div className="container flex flex-col min-h-screen mx-auto bg-white/[2%]">
+    <div className={cn("container flex flex-col mx-auto px-6 md:px-10", className)}>
       {children}
     </div>
   );
