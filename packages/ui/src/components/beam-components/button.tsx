@@ -1,17 +1,27 @@
 import React from 'react'
 import { Button, ButtonProps } from '@workspace/ui/components/button'
+import { cn } from '@workspace/ui/lib/utils'
 
-const BeamButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, ...props }, ref) => {
-      return (
-        <Button
-          size="lg"
-          className='bg-red-500'
-          ref={ref}
-          {...props}
-        />
-      )
-    }
-  )
+type BeamButtonProps = Omit<ButtonProps, 'variant'> & {
+  variantType?: 'default' | 'outline' | 'link'
+}
+
+const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
+  ({ variantType = "default", className, ...props }, ref) => {
+    return (
+      <Button
+        ref={ref}
+        variant="outline"
+        className={cn(
+          "bg-white transition-all duration-300 active:scale-95 active:border-2 active:border-black active:duration-150",
+          variantType === "default" &&
+          "border-transparent",
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
 
 export { BeamButton }
