@@ -1,14 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // https://github.com/vercel/turborepo/issues/4832#issuecomment-2629459687
   transpilePackages: ["@workspace/ui"],
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
-      include: /src\/assets\/.*\.svg$/, // this allows icon.svg in app dir to work. All SVGs to be handled by SVGR are in src/assets
+      include: /src\/assets\/.*\.svg$/,
       use: ["@svgr/webpack"],
     });
 
     return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+    ],
   },
   experimental: {
     turbo: {

@@ -6,8 +6,8 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [
     react(),
+    // https://medium.com/@praizjosh/how-to-import-svg-files-as-react-components-in-vite-97d6e1f2c046
     svgr({
-      // svgr options: https://react-svgr.com/docs/options/
       svgrOptions: {
         exportType: "default",
         ref: true,
