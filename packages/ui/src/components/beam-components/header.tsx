@@ -2,16 +2,20 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@workspace/ui/components/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons";
+import { BeamButton } from "@workspace/ui/components/beam-components/button";
 
 export type NavItem = {
   component: JSX.Element;
 };
 
-export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
+export const BeamHeader = ({ links }: { links: NavItem[] }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  if (links.length > 4) {
+    throw new Error("Navbar cannot have more than 4 items. Please reduce the number of links.");
+  }
 
   const overlayVariants = {
     hidden: { opacity: 0, transition: { duration: 0.1, ease: "easeOut" } },
@@ -24,24 +28,21 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
   };
 
   return (
-    <nav className="fixed w-full z-50">
-      <div className="relative z-50 bg-white">
-        <div className="container mx-auto p-4 flex items-center justify-between">
-          {/* Logo */}
+    <header className="fixed w-full h-20 z-50 bg-white">
+      <div className="relative z-50 h-full">
+        <div className="container mx-auto px-4 md:px-0 flex items-center justify-between h-full">
           <div className="flex items-center space-x-4">
             <BeamLogoDark className="h-auto w-auto" />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-10">
             {links.map(({ component }, index) => (
-              <Button key={index} variant="ghost" asChild>
+              <BeamButton key={index} variantType="link" asChild>
                 {component}
-              </Button>
+              </BeamButton>
             ))}
-          </div>
+          </nav>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden transition-opacity duration-300 ease-in-out">
             <button onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -50,30 +51,33 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
         </div>
       </div>
 
-      {/* Mobile Overlay */}
-      <motion.div
-        className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-40"
-        initial="hidden"
-        animate={isOpen ? "visible" : "hidden"}
-        variants={overlayVariants}
-        onClick={() => setIsOpen(false)}
-      />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 top-20 bg-black/50 h-screen w-full z-30"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={overlayVariants}
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
-      {/* Mobile Menu */}
       <motion.div
         className="absolute left-0 top-full w-full bg-white shadow-md rounded-b-2xl z-40"
         initial="hidden"
         animate={isOpen ? "visible" : "hidden"}
         variants={menuVariants}
       >
-        <div className="p-6 flex flex-col items-center space-y-6">
+        <nav className="p-6 flex flex-col items-center space-y-6">
           {links.map(({ component }, index) => (
-            <Button key={index} variant="ghost" asChild onClick={() => setIsOpen(false)}>
+            <BeamButton key={index} variantType="link" asChild onClick={() => setIsOpen(false)}>
               {component}
-            </Button>
+            </BeamButton>
           ))}
-        </div>
+        </nav>
       </motion.div>
-    </nav>
+    </header>
   );
 };

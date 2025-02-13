@@ -9,7 +9,7 @@ export default function Page() {
         <h1 className="text-2xl font-bold">Hello World</h1>
         <p className="text-lg">Real Project</p>
         <Button size="sm">Button</Button>
-        <BeamButton>Beam Button</BeamButton>
+        <BeamButton variantType="outline">Beam Button</BeamButton>
         <BeamLogoLight />
       </div>
     </div>

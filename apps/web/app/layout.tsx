@@ -2,9 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemesProvider } from "@workspace/ui/components/customs/themes-provider"
-import { Container } from "@workspace/ui/components/customs/container"
-import { BeamNavbar, NavItem } from "@workspace/ui/components/beam-components/navbar"
-
+import { BeamHeader, NavItem } from "@workspace/ui/components/beam-components/header"
 import Link from "next/link"
 
 const fontSans = Geist({
@@ -28,16 +26,24 @@ export default function RootLayout({
     { component: <Link href="/about">About us</Link> },
   ];
 
+  // const nextLinks: NavItem[] = [
+  //   { component: <Link href="/news">Newsroom</Link> },
+  //   { component: <Link href="/about">About us</Link> },
+  //   { component: <Link href="/services">Services</Link> },
+  //   { component: <Link href="/contact">Contact</Link> },
+  // ];
+
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}
       >
         <ThemesProvider>
-          <BeamNavbar links={nextLinks} />
-          <Container>
+          <BeamHeader links={nextLinks} />
+          <main className="pt-20">
             {children}
-          </Container>
+          </main>
         </ThemesProvider>
       </body>
     </html>
