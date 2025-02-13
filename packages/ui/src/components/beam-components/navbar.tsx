@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@workspace/ui/components/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons";
 
 export type NavItem = {
@@ -51,13 +51,18 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
       </div>
 
       {/* Mobile Overlay */}
-      <motion.div
-        className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-40"
-        initial="hidden"
-        animate={isOpen ? "visible" : "hidden"}
-        variants={overlayVariants}
-        onClick={() => setIsOpen(false)}
-      />
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-30"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={overlayVariants}
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu */}
       <motion.div
