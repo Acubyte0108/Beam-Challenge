@@ -28,6 +28,14 @@ export default function RootLayout({
     { component: <Link href="/about">About us</Link> },
   ];
 
+  // const nextLinks: NavItem[] = [
+  //   { component: <Link href="/news">Newsroom</Link> },
+  //   { component: <Link href="/about">About us</Link> },
+  //   { component: <Link href="/services">Services</Link> },
+  //   { component: <Link href="/contact">Contact</Link> },
+  // ];
+
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body

@@ -13,6 +13,10 @@ export type NavItem = {
 export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  if (links.length > 4) {
+    throw new Error("Navbar cannot have more than 4 items. Please reduce the number of links.");
+  }
+
   const overlayVariants = {
     hidden: { opacity: 0, transition: { duration: 0.1, ease: "easeOut" } },
     visible: { opacity: 1, transition: { duration: 0.2, ease: "easeInOut", delay: 0.3 } },

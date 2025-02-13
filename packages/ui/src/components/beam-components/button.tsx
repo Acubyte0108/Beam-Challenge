@@ -13,7 +13,7 @@ const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
         ref={ref}
         variant="outline"
         className={cn(
-          "bg-white transition-all duration-300 active:scale-95 active:border-2 active:border-black active:duration-150",
+          "bg-white text-primary transition-all duration-300 active:scale-95 active:border-2 active:border-black active:duration-150",
           variantType === "default" && "border-transparent",
           variantType === "outline" && "border-[#CED4DA]",
           variantType === "link" &&
