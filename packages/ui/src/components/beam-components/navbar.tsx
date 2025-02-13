@@ -28,9 +28,9 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
   };
 
   return (
-    <nav className="fixed w-full z-50">
-      <div className="relative z-50 bg-white">
-        <div className="container mx-auto p-4 flex items-center justify-between">
+    <nav className="fixed w-full h-20 z-50 bg-white">
+      <div className="relative z-50 h-full">
+        <div className="container mx-auto px-4 md:px-0 flex items-center justify-between h-full">
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <BeamLogoDark className="h-auto w-auto" />
@@ -58,7 +58,7 @@ export const BeamNavbar = ({ links }: { links: NavItem[] }) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 top-[4rem] bg-black/50 h-screen w-full z-30"
+            className="fixed inset-0 top-20 bg-black/50 h-screen w-full z-30"
             initial="hidden"
             animate="visible"
             exit="hidden"

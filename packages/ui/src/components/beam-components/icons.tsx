@@ -13,6 +13,8 @@ import SequoiaMobileSVG from "../../assets/Sequoia_logo_mobile.svg";
 import SurgeMobileSVG from "../../assets/Surge_logo_mobile.svg";
 import TcMobileSVG from "../../assets/Tc_logo_mobile.svg";
 import TechinasiaMobileSVG from "../../assets/Techinasia_logo_mobile.svg";
+import LinkedinSVG from "../../assets/Linkedin.svg";
+import LineSVG from "../../assets/Line.svg";
 
 
 const BeamLogoDark: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
@@ -47,6 +49,14 @@ const TechinasiaLogo: React.FC<React.SVGProps<SVGSVGElement> & { mobile?: boolea
   return mobile ? <TechinasiaMobileSVG {...props} /> : <TechinasiaDesktopSVG {...props} />;
 };
 
+const LinkedinIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return <LinkedinSVG {...props} />;
+};
+
+const LineIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+  return <LineSVG {...props} />;
+};
+
 
 export {
   BeamLogoDark,
@@ -57,4 +67,6 @@ export {
   SurgeLogo,
   TcLogo,
   TechinasiaLogo,
+  LinkedinIcon,
+  LineIcon
 };
