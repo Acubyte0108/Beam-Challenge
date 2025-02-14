@@ -37,7 +37,7 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
 
           <nav className="hidden md:flex items-center gap-x-10">
             {links.map(({ component }, index) => (
-              <BeamButton key={index} variantType="link" asChild className="text-lg pb-0">
+              <BeamButton key={index} variantType="link" asChild className="text-lg">
                 {component}
               </BeamButton>
             ))}
