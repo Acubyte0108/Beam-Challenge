@@ -57,17 +57,31 @@ export default function AboutUs() {
         </Container>
       </div>
 
-      <Container>
-        <div className="grid md:grid-cols-2 items-center py-20">
-          <div className="w-full md:border-r-2 border-[#CED4DA] flex items-center justify-around md:h-40 px-10">
-            <ForbesLogo className="" />
-            <TcLogo className="" />
-            <TechinasiaLogo className="" />
+      <Container className="mb-10">
+        <div className="grid md:grid-cols-2 items-center md:py-20 py-10">
+          <div className="w-full md:border-r-2 flex flex-col justify-between max-md:border-b-2 border-[#CED4DA] md:h-40">
+            <h3 className="md:text-lg text-sm flex items-center justify-center md:py-4 p-6">As Seen On</h3>
+            <div className="flex items-center justify-around md:px-10 p-4">
+              <ForbesLogo className="max-md:hidden" />
+              <TcLogo className="max-md:hidden" />
+              <TechinasiaLogo className="max-md:hidden" />
+
+              <ForbesLogo className="md:hidden" mobile/>
+              <TcLogo className="md:hidden" mobile/>
+              <TechinasiaLogo className="md:hidden" mobile/>
+            </div>
           </div>
-          <div className="w-full flex items-center justify-around md:h-40 px-10">
-            <SequoiaLogo className="" />
-            <SurgeLogo className="" />
-            <PartechLogo className="" />
+          <div className="w-full flex flex-col justify-between md:h-40">
+            <h3 className="md:text-lg text-sm flex items-center justify-center md:py-4 p-6">Backed By</h3>
+            <div className="flex items-center justify-around md:px-10 p-4">
+              <SequoiaLogo className="max-md:hidden" />
+              <SurgeLogo className="max-md:hidden" />
+              <PartechLogo className="max-md:hidden" />
+
+              <SequoiaLogo className="md:hidden" mobile/>
+              <SurgeLogo className="md:hidden" mobile/>
+              <PartechLogo className="md:hidden" mobile/>
+            </div>
           </div>
         </div>
       </Container>
