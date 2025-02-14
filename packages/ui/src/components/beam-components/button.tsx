@@ -6,7 +6,7 @@ type BeamButtonProps = Omit<ButtonProps, "variant"> & {
   variantType?: "default" | "outline" | "link";
 };
 
-const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
+export const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
   ({ variantType = "default", className, ...props }, ref) => {
     return (
       <Button
@@ -17,7 +17,7 @@ const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
           variantType === "default" && "border-transparent",
           variantType === "outline" && "border-[#CED4DA]",
           variantType === "link" &&
-          "bg-transparent border-none hover:bg-transparent hover:text-[#265BEA] active:scale-100 active:border-none active:duration-300",
+            "bg-transparent border-none hover:bg-transparent hover:text-[#265BEA] active:scale-100 active:border-none active:duration-300",
           className
         )}
         {...props}
@@ -25,5 +25,3 @@ const BeamButton = React.forwardRef<HTMLButtonElement, BeamButtonProps>(
     );
   }
 );
-
-export { BeamButton };
