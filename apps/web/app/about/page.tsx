@@ -9,6 +9,7 @@ import {
 } from "@workspace/ui/components/beam-components/icons";
 import { Container } from "@workspace/ui/components/customs/container";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
+import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
 
 export default function AboutUs() {
   return (
@@ -18,12 +19,9 @@ export default function AboutUs() {
           <h2>About us</h2>
         </div>
 
-        <Container className="md:gap-y-20 gap-6 max-w-7xl">
+        <Container className="md:gap-y-20 gap-y-10 max-w-7xl">
           <div className="grid md:grid-cols-2 md:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
-            {/* Image */}
-            <div className="w-full">
-              <div className="w-full h-80 bg-gray-300" />
-            </div>
+            <Image src={PlaceholderImage} alt="Placeholder" width={490} height={320} className="w-full h-80"/>
             <div className="flex flex-col md:gap-8 gap-6 md:py-2">
               <h3 className="md:text-4xl text-2xl font-medium">Title</h3>
               <p className="text-gray-600 max-md:text-sm">
@@ -49,10 +47,7 @@ export default function AboutUs() {
                 See more
               </BeamButton>
             </div>
-            {/* Image */}
-            <div className="order-1 md:order-2">
-              <div className="w-full h-80 bg-gray-300" />
-            </div>
+            <Image src={PlaceholderImage} alt="Placeholder" width={490} height={320} className="w-full h-80 order-1 md:order-2"/>
           </div>
         </Container>
       </div>
