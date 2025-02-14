@@ -7,8 +7,8 @@ import {
 } from "@workspace/ui/components/beam-components/blog-card";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
-import Image from "next/image";
 import { Post, PostsApiResponse } from "@/app/api/posts/route";
+import Image from "next/image";
 
 export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
   const [posts, setPosts] = useState<Post[]>(initialPosts || []);
@@ -42,6 +42,12 @@ export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
   return (
     <section className="md:py-12 pt-2 pb-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {posts.length === 0 && !loading && (
+          <div className="col-span-3 text-center text-gray-500 text-lg">
+            No news available at the moment. Please try again later.
+          </div>
+        )}
+
         {posts.map((post) => (
           <BlogCard
             key={`news-${post.id}`}
@@ -65,7 +71,7 @@ export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
           ))}
       </div>
 
-      {hasMore && (
+      {hasMore && posts.length > 0 && (
         <div className="flex justify-center mt-12">
           <BeamButton
             onClick={fetchPosts}

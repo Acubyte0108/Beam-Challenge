@@ -4,12 +4,20 @@ import { NewsSection } from "@/components/news-section";
 import { Post } from "@/app/api/posts/route";
 
 const getInitialPosts = async (): Promise<Post[]> => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=1&limit=6`,
-    { next: { revalidate: 900 } }
-  );
-  if (!res.ok) throw new Error("Failed to fetch posts");
-  return res.json().then((data) => data.data);
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=1&limit=6`,
+      { next: { revalidate: 900 } }
+    );
+
+    if (!res.ok) throw new Error(`Failed to fetch news. Status: ${res.status}`);
+
+    const data = await res.json();
+    return data.data ?? [];
+  } catch (error) {
+    console.error("Error fetching initial posts:", error);
+    return [];
+  }
 };
 
 export default async function NewsRoom() {
