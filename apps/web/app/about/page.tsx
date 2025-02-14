@@ -8,6 +8,7 @@ import {
   PartechLogo,
 } from "@workspace/ui/components/beam-components/icons";
 import { Container } from "@workspace/ui/components/customs/container";
+import { HeroBanner } from "@workspace/ui/components/customs/hero-banner";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
 
@@ -15,9 +16,9 @@ export default function AboutUs() {
   return (
     <div className="flex flex-col items-center min-h-svh justify-between">
       <div>
-        <div className="w-full text-4xl font-semibold flex items-center justify-center h-48 md:h-64 lg:h-80">
+        <HeroBanner>
           <h2>About us</h2>
-        </div>
+        </HeroBanner>
 
         <Container className="md:gap-y-20 gap-y-10 max-w-7xl">
           <div className="grid md:grid-cols-2 md:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">

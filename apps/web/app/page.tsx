@@ -1,4 +1,5 @@
 import { Container } from "@workspace/ui/components/customs/container";
+import { HeroBanner } from "@workspace/ui/components/customs/hero-banner";
 import { NewsSection } from "@/components/news-section";
 import { Post } from "@/app/api/posts/route";
 
@@ -16,9 +17,9 @@ export default async function NewsRoom() {
 
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-svh bg-[#F6F8FA]">
-      <div className="w-full bg-gradient-to-r from-blue-600 to-purple-400 flex items-center justify-center text-white text-4xl font-semibold h-48 md:h-64 lg:h-80">
+      <HeroBanner className="bg-gradient-to-r from-blue-600 to-purple-400 text-white">
         <h2>News room</h2>
-      </div>
+      </HeroBanner>
 
       <Container>
         <NewsSection initialPosts={initialPosts} />
