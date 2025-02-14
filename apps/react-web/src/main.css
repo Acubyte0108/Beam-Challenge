@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist&family=Geist+Mono&display=swap');
+
+:root {
+  --font-sans: system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+.body {
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+  
+  font-family: var(--font-sans);
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
