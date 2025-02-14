@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const nextLinks: NavItem[] = [
-    { component: <Link href="/news">Newsroom</Link> },
+    { component: <Link href="/">Newsroom</Link> },
     { component: <Link href="/about">About us</Link> },
   ];
 

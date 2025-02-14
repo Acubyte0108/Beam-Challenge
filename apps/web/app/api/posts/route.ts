@@ -2,6 +2,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { faker } from '@faker-js/faker';
 
+export type Post = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+};
+
+export type PostsApiResponse = {
+  page: number;
+  limit: number;
+  hasMore: boolean;
+  data: Post[];
+};
+
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
@@ -51,7 +65,7 @@ export async function GET(request: NextRequest) {
 
   const hasMore = endIndex < TOTAL_ITEMS;
 
-  const response = NextResponse.json({
+  const response = NextResponse.json<PostsApiResponse>({
     page,
     limit,
     hasMore,
