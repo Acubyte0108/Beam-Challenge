@@ -11,7 +11,7 @@ export const BeamFooter = () => {
       <div className="w-full flex flex-col container mx-auto px-10 md:gap-y-12 gap-y-10">
         <div className="w-full flex items-center justify-between">
           <BeamLogoLight />
-          <div className="flex items-center gap-4">
+          <div className="flex items-center md:gap-6 gap-4">
             <LinkedinIcon className="cursor-pointer" />
             <LineIcon className="cursor-pointer" />
           </div>
