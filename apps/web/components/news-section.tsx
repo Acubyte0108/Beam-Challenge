@@ -5,20 +5,7 @@ import { BlogCard } from "@workspace/ui/components/beam-components/blog-card";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
 import Image from "next/image";
-
-type Post = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-};
-
-type ApiResponse = {
-  page: number;
-  limit: number;
-  hasMore: boolean;
-  data: Post[];
-};
+import { Post, PostsApiResponse } from "@/app/api/posts/route";
 
 export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
   const [posts, setPosts] = useState<Post[]>(initialPosts || []);
@@ -36,7 +23,7 @@ export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
       );
       if (!res.ok) throw new Error("Failed to fetch posts");
   
-      const data: ApiResponse = await res.json();
+      const data: PostsApiResponse = await res.json();
   
       setPosts((prev) => [...prev, ...data.data]);
   

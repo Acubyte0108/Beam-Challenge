@@ -1,12 +1,6 @@
 import { Container } from "@workspace/ui/components/customs/container";
 import { NewsSection } from "@/components/news-section";
-
-type Post = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-};
+import { Post } from "@/app/api/posts/route";
 
 const getInitialPosts = async (): Promise<Post[]> => {
   const res = await fetch(
