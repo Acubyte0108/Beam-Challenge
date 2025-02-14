@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { BlogCard } from "@workspace/ui/components/beam-components/blog-card";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
@@ -20,32 +20,26 @@ type ApiResponse = {
   data: Post[];
 };
 
-export const NewsSection = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [page, setPage] = useState(1);
+export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
+  const [posts, setPosts] = useState<Post[]>(initialPosts || []);
+  const [page, setPage] = useState(2);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  // Fetch Posts from API
   const fetchPosts = async () => {
     if (!hasMore || loading) return;
-
+  
     setLoading(true);
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=${page}&limit=6`
       );
       if (!res.ok) throw new Error("Failed to fetch posts");
-
+  
       const data: ApiResponse = await res.json();
-
-      // ✅ Prevent duplicate entries by filtering out existing post IDs
-      setPosts((prev) => {
-        const existingIds = new Set(prev.map((post) => post.id));
-        const newPosts = data.data.filter((post) => !existingIds.has(post.id));
-        return [...prev, ...newPosts]; // Append only unique posts
-      });
-
+  
+      setPosts((prev) => [...prev, ...data.data]);
+  
       setHasMore(data.hasMore);
       setPage((prev) => prev + 1);
     } catch (error) {
@@ -54,10 +48,6 @@ export const NewsSection = () => {
       setLoading(false);
     }
   };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
   return (
     <section className="md:py-12 pt-2 pb-12">
