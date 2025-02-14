@@ -60,7 +60,7 @@ export const NewsSection = () => {
   }, []);
 
   return (
-    <section className="md:py-12 py-2">
+    <section className="md:py-12 pt-2 pb-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {posts.map((post) => (
           <BlogCard
@@ -91,11 +91,11 @@ export const NewsSection = () => {
       </div>
 
       {hasMore && (
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-12">
           <BeamButton
             onClick={fetchPosts}
             size="lg"
-            className="md:w-1/3 w-full"
+            className="md:w-1/3 w-full md:text-lg text-md"
           >
             {loading ? "Loading..." : "See more"}
           </BeamButton>
