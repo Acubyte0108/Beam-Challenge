@@ -24,7 +24,7 @@ export const BlogCard = ({
 
       <CardContent className="h-2/5 p-6 pb-0 flex flex-col gap-y-4">
         <h3 className="md:text-2xl font-semibold text-xl capitalize">{title}</h3>
-        <p className="text-[#363E59] md:font-light md:text-lg text-sm">{description}</p>
+        <p className="text-[#363E59] md:font-light md:text-lg text-sm line-clamp-3">{description}</p>
       </CardContent>
 
       <CardFooter className="h-1/10 p-0 px-6">

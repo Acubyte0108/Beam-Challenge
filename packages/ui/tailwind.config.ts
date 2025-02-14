@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import tailwindcssAnimate from "tailwindcss-animate"
+import lineClamp from "@tailwindcss/line-clamp";
 //@ts-ignore
 import { fontFamily } from "tailwindcss/defaultTheme"
 
@@ -60,7 +61,7 @@ const config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [tailwindcssAnimate, lineClamp],
 } satisfies Config
 
 export default config
