@@ -66,23 +66,13 @@ export const NewsSection = () => {
           <BlogCard
             key={`news-${post.id}`}
             imageComponent={
-              post.image ? (
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={490}
-                  height={320}
-                  className="rounded-t-xl w-full h-full object-cover"
-                />
-              ) : (
-                <Image
-                  src={PlaceholderImage}
-                  alt="placeholder"
-                  width={490}
-                  height={320}
-                  className="rounded-t-xl w-full h-full object-cover"
-                />
-              )
+              <Image
+                src={post.image?.trim() ? post.image : PlaceholderImage}
+                alt={post.title || "Placeholder Image"}
+                width={490}
+                height={320}
+                className="rounded-t-xl w-full h-full object-cover"
+              />
             }
             title={post.title}
             description={post.description}
