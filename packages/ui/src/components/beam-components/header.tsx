@@ -30,14 +30,14 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
   return (
     <header className="fixed top-0 left-0 w-full h-20 z-50 bg-white">
       <div className="relative z-50 h-full">
-        <div className="container mx-auto px-4 md:px-10 flex items-center justify-between h-full">
-          <div className="flex items-center space-x-4">
+        <div className="container mx-auto px-4 md:px-10 flex items-center justify-between md:justify-normal h-full gap-x-32">
+          <div className="flex items-center">
             <BeamLogoDark className="h-auto w-auto" />
           </div>
 
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex items-center gap-x-10">
             {links.map(({ component }, index) => (
-              <BeamButton key={index} variantType="link" asChild>
+              <BeamButton key={index} variantType="link" asChild className="text-lg">
                 {component}
               </BeamButton>
             ))}
@@ -70,7 +70,7 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
         animate={isOpen ? "visible" : "hidden"}
         variants={menuVariants}
       >
-        <nav className="p-6 flex flex-col items-center space-y-6">
+        <nav className="p-6 pt-0 flex flex-col items-center gap-y-6">
           {links.map(({ component }, index) => (
             <BeamButton key={index} variantType="link" asChild onClick={() => setIsOpen(false)}>
               {component}
