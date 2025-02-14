@@ -6,7 +6,7 @@ import {
   BeamHeader,
   NavItem,
 } from "@workspace/ui/components/beam-components/header";
-import { BeamFooter } from "@/components/footer";
+import { BeamFooter } from "@workspace/ui/components/beam-components/footer";
 import Link from "next/link";
 
 const fontSans = Geist({
