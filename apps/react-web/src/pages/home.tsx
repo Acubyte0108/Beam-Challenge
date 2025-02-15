@@ -1,77 +1,95 @@
-import { useState } from 'react'
-import { Button } from '@workspace/ui/components/button'
-import { BeamButton } from "@workspace/ui/components/beam-components/button"
-import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons"
+import { Container } from "@workspace/ui/components/customs/container";
+import { Check } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@workspace/ui/components/carousel";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import Carousel1 from "@workspace/ui/assets/carousel-1.jpg";
+import Carousel2 from "@workspace/ui/assets/carousel-2.jpg";
+import Carousel3 from "@workspace/ui/assets/carousel-3.jpg";
+import Carousel4 from "@workspace/ui/assets/carousel-4.jpg";
+import Carousel5 from "@workspace/ui/assets/carousel-5.jpg";
+import Autoplay from "embla-carousel-autoplay";
 
-type Post = {
-  id: number
-  title: string
-  body: string
-  image?: string
-}
+const carouselImages = [Carousel1, Carousel2, Carousel3, Carousel4, Carousel5];
 
 export default function Home() {
-  const [posts, setPosts] = useState<Post[]>([])
-  const [error, setError] = useState<string | null>(null)
-
-  const API_URL = `${import.meta.env.VITE_API_BASE_URL}/api/posts`
-
-  async function fetchPosts() {
-    setError(null)
-    try {
-      const res = await fetch(API_URL)
-      if (!res.ok) {
-        throw new Error(`Fetch failed with status ${res.status}`)
-      }
-      const data = await res.json()
-      if (data.data) {
-        setPosts(data.data) 
-      } else {
-        setPosts([])
-      }
-    } catch (err: any) {
-      setError(err.message)
-    }
-  }
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <header className="text-4xl font-bold text-red-600 mb-4">
-        Welcome to My App
-      </header>
-      <p className="text-lg mb-4">Test fetching from Nextjs app</p>
+    <div className="flex flex-col items-center gap-y-4 min-h-svh">
+      <div className="py-4 w-full bg-gradient-to-r from-[#DC2424] to-[#4A569D]">
+        <Container>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 7000,
+                stopOnInteraction: false,
+              }),
+            ]}
+            className="w-full"
+          >
+            <CarouselContent>
+              {carouselImages.map((image, i) => (
+                <CarouselItem
+                  key={`carousel-item-${i + 1}`}
+                  className="md:basis-1/2 lg:basis-1/3"
+                >
+                  <LazyLoadImage
+                    src={image}
+                    alt={`Slide ${i + 1}`}
+                    className="object-cover rounded-xl h-full"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="max-md:hidden" />
+            <CarouselNext className="max-md:hidden" />
+          </Carousel>
+        </Container>
+      </div>
 
-      <BeamLogoDark className='bg-cyan-300'/>
-
-      <BeamButton>Beam Button</BeamButton>
-
-      <Button size="sm" onClick={fetchPosts}>
-        Fetch Posts
-      </Button>
-
-      {error && (
-        <p className="text-red-500 mt-4">
-          Error: {error}
-        </p>
-      )}
-
-      {posts.length > 0 && (
-        <div className="mt-6 flex flex-col gap-4">
-          {posts.map((post) => (
-            <div key={post.id} className="p-4 border border-gray-200 rounded-md">
-              <h2 className="font-bold text-xl mb-2">{post.title}</h2>
-              <p>{post.body}</p>
-              {post.image && (
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="mt-2 w-full h-auto"
-                />
-              )}
+      <Container className="flex-1 items-center mt-20 gap-10">
+        <h2 className="md:text-3xl text-2xl font-bold">
+          Welcome to the Vite App
+        </h2>
+        <ul className="md:max-w-2xl mt-4 md:space-y-8 space-y-6">
+          <li className="flex items-center gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
             </div>
-          ))}
-        </div>
-      )}
+            <span className="md:text-xl text-sm">
+              Leverages the power of a monorepo to manage multiple projects in a
+              single codebase.
+            </span>
+          </li>
+          <li className="flex items-center gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
+            </div>
+            <span className="md:text-xl text-sm">
+              Simplifies dependency management while keeping the code clean and
+              organized.
+            </span>
+          </li>
+          <li className="flex items-cente gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
+            </div>
+
+            <span className="md:text-xl text-sm">
+              Mimics a Next.js page to showcase custom and shadcn components
+              from the workspace (<code>packages/ui</code>).
+            </span>
+          </li>
+        </ul>
+      </Container>
     </div>
-  )
+  );
 }

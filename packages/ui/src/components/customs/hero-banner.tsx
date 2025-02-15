@@ -3,7 +3,7 @@ import { cn } from "@workspace/ui/lib/utils";
 
 type HeroBannerProps = {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const HeroBanner = ({ className, children }: HeroBannerProps) => {
