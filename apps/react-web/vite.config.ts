@@ -25,7 +25,6 @@ export default defineConfig({
   },
   esbuild: {
     treeShaking: true,
-    drop: ["console", "debugger"],
   },
   server: {
     port: 3001,

@@ -14,7 +14,7 @@ type BlogCardProps = {
 
 const BlogCard = ({ imageComponent, title, description }: BlogCardProps) => {
   return (
-    <Card className="rounded-xl h-full cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:max-h-[450px] max-h-[380px]">
+    <Card className="rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] md:h-[450px] h-[380px]">
       <CardHeader className="p-0 h-1/2">{imageComponent}</CardHeader>
 
       <CardContent className="h-2/5 p-6 pb-0 flex flex-col gap-y-4">
