@@ -8,6 +8,7 @@ import {
   CarouselNext,
 } from "@workspace/ui/components/carousel";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Carousel1 from "@workspace/ui/assets/carousel-1.jpg";
 import Carousel2 from "@workspace/ui/assets/carousel-2.jpg";
 import Carousel3 from "@workspace/ui/assets/carousel-3.jpg";
@@ -44,7 +45,8 @@ export default function Home() {
                   <LazyLoadImage
                     src={image}
                     alt={`Slide ${i + 1}`}
-                    className="object-cover rounded-xl h-full"
+                    effect="blur"
+                    className="object-cover rounded-xl"
                   />
                 </CarouselItem>
               ))}
