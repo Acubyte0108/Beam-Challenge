@@ -8,7 +8,10 @@ import { BeamButton } from "@workspace/ui/components/beam-components/button";
 import { Container } from "@workspace/ui/components/customs/container";
 import { HeroBanner } from "@workspace/ui/components/customs/hero-banner";
 import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import {
+  LazyLoadImage,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 type Post = {
@@ -25,7 +28,7 @@ type ApiResponse = {
   data: Post[];
 };
 
-export default function NewsRoom() {
+function NewsRoom({ scrollPosition }: { scrollPosition?: any }) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -39,7 +42,7 @@ export default function NewsRoom() {
 
   const fetchPosts = async (pageNum: number) => {
     if (!hasMore || loading) return;
-    
+
     setLoading(true);
     try {
       const res = await axios.get<ApiResponse>(
@@ -81,6 +84,7 @@ export default function NewsRoom() {
                     width="100%"
                     height="100%"
                     className="rounded-t-xl w-full h-full object-cover"
+                    scrollPosition={scrollPosition}
                   />
                 }
                 title={post.title}
@@ -111,3 +115,5 @@ export default function NewsRoom() {
     </div>
   );
 }
+
+export default trackWindowScroll(NewsRoom);
