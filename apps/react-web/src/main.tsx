@@ -1,16 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import "@workspace/ui/globals.css"
-import App from './App.tsx'
-import { ThemesProvider } from '@workspace/ui/components/customs/themes-provider'
-import { Container } from '@workspace/ui/components/customs/container'
+import { createRoot } from "react-dom/client";
+import "@workspace/ui/globals.css";
+import "./main.css";
+import { RouterProvider } from "react-router";
+import { router } from "./routes";
+import { ThemesProvider } from "@workspace/ui/components/customs/themes-provider";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemesProvider>
-      <Container>
-        <App />
-      </Container>
-    </ThemesProvider>
-  </StrictMode>,
-)
+createRoot(document.getElementById("root")!).render(
+  <ThemesProvider>
+    <RouterProvider router={router} />
+  </ThemesProvider>
+);
