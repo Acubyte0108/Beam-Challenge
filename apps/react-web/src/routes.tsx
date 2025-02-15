@@ -1,29 +1,15 @@
 import React from 'react';
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router';
 import App from './App';
 import Home from './pages/home';
 import NotFound from './pages/not-found';
-// import DashboardLayout from './pages/dashboard/DashboardLayout';
-// import DashboardHome from './pages/dashboard/DashboardHome';
-// import DashboardSettings from './pages/dashboard/DashboardSettings';
-// import DashboardType from './pages/dashboard/DashboardType';
+import NewsRoom from './pages/news-room';
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <NotFound />,
-    children: [
-      { index: true, element: <Home /> },
-    //   {
-    //     path: 'dashboard',
-    //     element: <DashboardLayout />,
-    //     children: [
-    //       { index: true, element: <DashboardHome /> },
-    //       { path: 'settings', element: <DashboardSettings /> },
-    //       { path: ':type', element: <DashboardType /> },
-    //     ],
-    //   },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<App />} errorElement={<NotFound />}>
+      <Route index element={<Home />} />
+      <Route path="news" element={<NewsRoom />} />
+    </Route>
+  )
+);
