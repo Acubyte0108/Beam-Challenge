@@ -3,7 +3,7 @@ import { cn } from "@workspace/ui/lib/utils"
 
 type ContainerProps = {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 };
 
 export const Container = ({ className, children }: ContainerProps) => {
