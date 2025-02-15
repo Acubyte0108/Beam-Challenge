@@ -44,8 +44,6 @@ export default function Home() {
                   <LazyLoadImage
                     src={image}
                     alt={`Slide ${i + 1}`}
-                    width={500}
-                    height={300}
                     className="object-cover rounded-xl h-full"
                   />
                 </CarouselItem>
@@ -58,25 +56,34 @@ export default function Home() {
       </div>
 
       <Container className="flex-1 items-center mt-20 gap-10">
-        <h2 className="md:text-3xl text-2xl font-bold">Welcome to the Vite App</h2>
-        <ul className="mt-4 space-y-2">
-          <li className="flex items-center">
-            <Check className="h-8 w-8 text-green-500 mr-2" />
-            <span className="md:text-xl text-sm leading-relaxed">
+        <h2 className="md:text-3xl text-2xl font-bold">
+          Welcome to the Vite App
+        </h2>
+        <ul className="md:max-w-2xl mt-4 md:space-y-8 space-y-6">
+          <li className="flex items-center gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
+            </div>
+            <span className="md:text-xl text-sm">
               Leverages the power of a monorepo to manage multiple projects in a
               single codebase.
             </span>
           </li>
-          <li className="flex items-center">
-            <Check className="h-8 w-8 text-green-500 mr-2" />
-            <span className="md:text-xl text-sm leading-relaxed">
+          <li className="flex items-center gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
+            </div>
+            <span className="md:text-xl text-sm">
               Simplifies dependency management while keeping the code clean and
               organized.
             </span>
           </li>
-          <li className="flex items-center">
-            <Check className="h-8 w-8 text-green-500 mr-2" />
-            <span className="md:text-xl text-sm leading-relaxed">
+          <li className="flex items-cente gap-x-4">
+            <div className="flex items-center">
+              <Check className="md:h-8 md:w-8 h-6 w-6 text-green-500" />
+            </div>
+
+            <span className="md:text-xl text-sm">
               Mimics a Next.js page to showcase custom and shadcn components
               from the workspace (<code>packages/ui</code>).
             </span>
