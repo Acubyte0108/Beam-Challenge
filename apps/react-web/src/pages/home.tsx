@@ -1,5 +1,5 @@
-import { HeroBanner } from "@workspace/ui/components/customs/hero-banner";
 import { Container } from "@workspace/ui/components/customs/container";
+import { Check } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -20,10 +20,9 @@ const carouselImages = [Carousel1, Carousel2, Carousel3, Carousel4, Carousel5];
 export default function Home() {
   return (
     <div className="flex flex-col items-center gap-y-4 min-h-svh">
-      <div className="py-4">
-        <HeroBanner>
-          <Container>
-            <Carousel
+      <div className="py-4 w-full bg-gradient-to-r from-[#DC2424] to-[#4A569D]">
+        <Container>
+          <Carousel
             opts={{
               align: "start",
               loop: true,
@@ -47,7 +46,7 @@ export default function Home() {
                     alt={`Slide ${i + 1}`}
                     width={500}
                     height={300}
-                    className="object-cover rounded-xl w-full h-full"
+                    className="object-cover rounded-xl h-full"
                   />
                 </CarouselItem>
               ))}
@@ -56,17 +55,33 @@ export default function Home() {
             <CarouselNext className="max-md:hidden" />
           </Carousel>
         </Container>
-      </HeroBanner>
       </div>
-      
-      <Container>
-        <div className="flex flex-col items-center justify-center flex-1">
-          <h2 className="text-2xl font-bold">Welcome to our website</h2>
-          <p className="text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
+
+      <Container className="flex-1 items-center mt-20 gap-10">
+        <h2 className="md:text-3xl text-2xl font-bold">Welcome to the Vite App</h2>
+        <ul className="mt-4 space-y-2">
+          <li className="flex items-center">
+            <Check className="h-8 w-8 text-green-500 mr-2" />
+            <span className="md:text-xl text-sm leading-relaxed">
+              Leverages the power of a monorepo to manage multiple projects in a
+              single codebase.
+            </span>
+          </li>
+          <li className="flex items-center">
+            <Check className="h-8 w-8 text-green-500 mr-2" />
+            <span className="md:text-xl text-sm leading-relaxed">
+              Simplifies dependency management while keeping the code clean and
+              organized.
+            </span>
+          </li>
+          <li className="flex items-center">
+            <Check className="h-8 w-8 text-green-500 mr-2" />
+            <span className="md:text-xl text-sm leading-relaxed">
+              Mimics a Next.js page to showcase custom and shadcn components
+              from the workspace (<code>packages/ui</code>).
+            </span>
+          </li>
+        </ul>
       </Container>
     </div>
   );

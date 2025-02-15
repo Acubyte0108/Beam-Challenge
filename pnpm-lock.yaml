@@ -35,6 +35,9 @@ importers:
       embla-carousel-autoplay:
         specifier: ^8.5.2
         version: 8.5.2(embla-carousel@8.5.2)
+      lucide-react:
+        specifier: 0.456.0
+        version: 0.456.0(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -105,6 +108,9 @@ importers:
       '@workspace/ui':
         specifier: workspace:*
         version: link:../../packages/ui
+      lucide-react:
+        specifier: 0.456.0
+        version: 0.456.0(react@19.0.0)
       next:
         specifier: ^15.1.0
         version: 15.1.0(@babel/core@7.26.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
