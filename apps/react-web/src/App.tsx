@@ -11,7 +11,6 @@ const App = () => {
     { component: <Link to="/">Home</Link> },
     { component: <Link to="/news">Newsroom</Link> },
     { component: <Link to="/about">About us</Link> },
-    { component: <Link to="/services">Services</Link> },
   ];
 
   return (
