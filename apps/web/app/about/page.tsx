@@ -72,32 +72,32 @@ export default function AboutUs() {
 
       <Container className="mb-10">
         <div className="grid md:grid-cols-2 items-center md:py-20 py-10">
-          <div className="w-full md:border-r-2 flex flex-col justify-between max-md:border-b-2 border-[#CED4DA] md:h-40">
-            <h3 className="md:text-lg text-sm flex items-center justify-center md:py-4 p-6">
+          <div className="w-full md:border-r-2 flex flex-col justify-between max-md:border-b-2 border-[#CED4DA] h-full">
+            <h3 className="xl:text-lg text-sm flex items-center justify-center md:py-4 p-6">
               As Seen On
             </h3>
-            <div className="flex items-center justify-around md:px-10 p-4">
-              <ForbesLogo className="max-md:hidden" />
-              <TcLogo className="max-md:hidden" />
-              <TechinasiaLogo className="max-md:hidden" />
+            <div className="grid grid-cols-3 items-center justify-items-center md:px-10 p-4">
+              <ForbesLogo className="max-xl:hidden" />
+              <TcLogo className="max-xl:hidden" />
+              <TechinasiaLogo className="max-xl:hidden" />
 
-              <ForbesLogo className="md:hidden" mobile />
-              <TcLogo className="md:hidden" mobile />
-              <TechinasiaLogo className="md:hidden" mobile />
+              <ForbesLogo className="xl:hidden" mobile />
+              <TcLogo className="xl:hidden" mobile />
+              <TechinasiaLogo className="xl:hidden" mobile />
             </div>
           </div>
-          <div className="w-full flex flex-col justify-between md:h-40">
-            <h3 className="md:text-lg text-sm flex items-center justify-center md:py-4 p-6">
+          <div className="w-full flex flex-col justify-between h-full">
+            <h3 className="xl:text-lg text-sm flex items-center justify-center md:py-4 p-6">
               Backed By
             </h3>
-            <div className="flex items-center justify-around md:px-10 p-4">
-              <SequoiaLogo className="max-md:hidden" />
-              <SurgeLogo className="max-md:hidden" />
-              <PartechLogo className="max-md:hidden" />
+            <div className="grid grid-cols-3 items-center justify-items-center md:px-10 p-4">
+              <SequoiaLogo className="max-xl:hidden" />
+              <SurgeLogo className="max-xl:hidden" />
+              <PartechLogo className="max-xl:hidden" />
 
-              <SequoiaLogo className="md:hidden" mobile />
-              <SurgeLogo className="md:hidden" mobile />
-              <PartechLogo className="md:hidden" mobile />
+              <SequoiaLogo className="xl:hidden" mobile />
+              <SurgeLogo className="xl:hidden" mobile />
+              <PartechLogo className="xl:hidden" mobile />
             </div>
           </div>
         </div>
