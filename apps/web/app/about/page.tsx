@@ -24,7 +24,7 @@ export default function AboutUs() {
             <div className="w-full">
               <Image
                 src="https://picsum.photos/id/45/490/320"
-                alt="Story1"
+                alt="Story 1"
                 width={490}
                 height={320}
                 priority
