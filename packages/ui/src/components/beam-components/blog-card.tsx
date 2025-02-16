@@ -7,14 +7,14 @@ import {
 import { Skeleton } from "@workspace/ui/components/skeleton";
 
 type BlogCardProps = {
-  imageComponent: React.ReactNode;
+  imageComponent: JSX.Element;
   title: string;
   description: string;
 };
 
 const BlogCard = ({ imageComponent, title, description }: BlogCardProps) => {
   return (
-    <Card className="rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] lg:h-[450px] md:h-[380px] h-[360px]">
+    <Card className="rounded-xl cursor-pointer transition-all duration-300 hover:shadow-lg hover:scale-[1.01] lg:h-[450px] h-[360px]">
       <CardHeader className="p-0 h-1/2">{imageComponent}</CardHeader>
 
       <CardContent className="h-2/5 p-6 pb-0 flex flex-col lg:gap-y-4 gap-y-2">
