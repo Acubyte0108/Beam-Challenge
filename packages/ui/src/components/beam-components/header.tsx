@@ -44,18 +44,18 @@ export const BeamHeader = ({ links, homeLogo }: BeamHeaderProps) => {
   return (
     <header className="fixed top-0 left-0 w-full h-20 z-50 bg-white">
       <div className="relative z-50 h-full">
-        <div className="container mx-auto px-4 md:px-10 flex items-center justify-between md:justify-normal h-full gap-x-32">
+        <div className="container mx-auto px-4 md:px-10 flex items-center justify-between md:justify-normal h-full xl:gap-x-32 lg:gap-x-20 gap-x-10">
           <div className="flex items-center">
             {homeLogo ? homeLogo : <BeamLogoDark className="h-auto w-auto" />}
           </div>
 
-          <nav className="hidden md:flex items-center gap-x-10">
+          <nav className="hidden md:flex items-center xl:gap-x-10 gap-x-4">
             {links.map(({ component }, index) => (
               <BeamButton
                 key={index}
                 variantType="link"
                 asChild
-                className="text-lg"
+                className="lg:text-lg"
               >
                 {component}
               </BeamButton>
