@@ -57,7 +57,7 @@ export default function Home() {
         </Container>
       </div>
 
-      <Container className="flex-1 items-center mt-20 gap-10">
+      <Container className="flex-1 items-center my-20 gap-10">
         <h2 className="md:text-3xl text-2xl font-bold">
           Welcome to the Vite App
         </h2>
