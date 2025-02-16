@@ -20,8 +20,8 @@ export default function AboutUs() {
         </HeroBanner>
 
         <Container className="md:gap-y-20 gap-y-10 max-w-7xl">
-          <div className="grid md:grid-cols-5 xl:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
-            <div className="md:col-span-3 xl:col-span-1 md:w-full">
+          <div className="grid md:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
+            <div className="w-full">
               <Image
                 src="https://picsum.photos/id/45/490/320"
                 alt="Story1"
@@ -31,9 +31,9 @@ export default function AboutUs() {
                 className="w-full h-full"
                 />
             </div>
-            <div className="flex flex-col xl:gap-8 gap-6 md:py-2 md:col-span-2 xl:col-span-1">
+            <div className="flex flex-col xl:gap-8 gap-6 md:py-2">
               <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
-              <p className="text-sm lg:text-lg">
+              <p className="max-md:text-sm xl:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -44,10 +44,10 @@ export default function AboutUs() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-5 xl:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
-            <div className="order-2 md:order-1 flex flex-col xl:gap-8 gap-6 md:py-2 md:col-span-2 xl:col-span-1">
+          <div className="grid md:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
+            <div className="order-2 md:order-1 flex flex-col xl:gap-8 gap-6 md:py-2">
               <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
-              <p className="text-sm lg:text-lg">
+              <p className="max-md:text-sm xl:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -56,7 +56,7 @@ export default function AboutUs() {
                 See more
               </BeamButton>
             </div>
-            <div className="col-span-3 xl:col-span-1 md:w-full order-1 md:order-2">
+            <div className="w-full order-1 md:order-2">
               <Image
                 src="https://picsum.photos/id/96/490/320"
                 alt="Story2"
