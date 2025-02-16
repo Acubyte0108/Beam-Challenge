@@ -29,10 +29,12 @@ export default function AboutUs() {
                 height={320}
                 priority
                 className="w-full h-full"
-                />
+              />
             </div>
             <div className="flex flex-col xl:gap-8 gap-6 md:py-2">
-              <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
+              <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">
+                Title
+              </h3>
               <p className="max-md:text-sm xl:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -46,7 +48,9 @@ export default function AboutUs() {
 
           <div className="grid md:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
             <div className="order-2 md:order-1 flex flex-col xl:gap-8 gap-6 md:py-2">
-              <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
+              <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">
+                Title
+              </h3>
               <p className="max-md:text-sm xl:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -71,12 +75,12 @@ export default function AboutUs() {
       </div>
 
       <Container className="mb-10">
-        <div className="grid md:grid-cols-2 items-center md:py-20 py-10">
-          <div className="w-full md:border-r-2 flex flex-col justify-between max-md:border-b-2 border-[#CED4DA] h-full">
-            <h3 className="xl:text-lg text-sm flex items-center justify-center md:py-4 p-6">
+        <div className="w-full grid md:grid-cols-2 items-center md:py-20 py-10">
+          <div className="w-full md:border-r-2 grid grid-rows-2 max-md:border-b-2 border-[#CED4DA] md:h-full h-32 md:py-3 py-4 xl:gap-y-10">
+            <h3 className="xl:text-lg text-sm flex justify-center max-md:items-center">
               As Seen On
             </h3>
-            <div className="grid grid-cols-3 items-center justify-items-center md:px-10 p-4">
+            <div className="grid grid-cols-3 items-center justify-items-center">
               <ForbesLogo className="max-xl:hidden" />
               <TcLogo className="max-xl:hidden" />
               <TechinasiaLogo className="max-xl:hidden" />
@@ -86,11 +90,11 @@ export default function AboutUs() {
               <TechinasiaLogo className="xl:hidden" mobile />
             </div>
           </div>
-          <div className="w-full flex flex-col justify-between h-full">
-            <h3 className="xl:text-lg text-sm flex items-center justify-center md:py-4 p-6">
+          <div className="w-full grid grid-rows-2 md:h-full h-32 md:py-3 py-4 xl:gap-y-10">
+            <h3 className="xl:text-lg text-sm flex justify-center max-md:items-center">
               Backed By
             </h3>
-            <div className="grid grid-cols-3 items-center justify-items-center md:px-10 p-4">
+            <div className="grid grid-cols-3 items-center justify-items-center">
               <SequoiaLogo className="max-xl:hidden" />
               <SurgeLogo className="max-xl:hidden" />
               <PartechLogo className="max-xl:hidden" />
