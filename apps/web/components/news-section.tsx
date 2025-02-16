@@ -16,14 +16,15 @@ export const NewsSection = ({ initialPosts }: { initialPosts: Post[] }) => {
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:3000";
+
   const fetchPosts = async () => {
     if (!hasMore || loading) return;
 
     setLoading(true);
     try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=${page}&limit=6`
-      );
+      const res = await fetch(`${API_URL}/api/posts?page=${page}&limit=6`);
       if (!res.ok) throw new Error("Failed to fetch posts");
 
       const data: PostsApiResponse = await res.json();

@@ -27,7 +27,6 @@ export async function OPTIONS() {
   });
 }
 
-
 if (process.env.FAKER_SEED) {
   const seed = Number(process.env.FAKER_SEED);
   if (!isNaN(seed)) {
