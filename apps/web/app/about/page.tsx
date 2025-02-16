@@ -10,7 +10,6 @@ import {
 import { Container } from "@workspace/ui/components/customs/container";
 import { HeroBanner } from "@workspace/ui/components/customs/hero-banner";
 import { BeamButton } from "@workspace/ui/components/beam-components/button";
-import PlaceholderImage from "@workspace/ui/assets/placeholder.png";
 
 export default function AboutUs() {
   return (
@@ -23,10 +22,11 @@ export default function AboutUs() {
         <Container className="md:gap-y-20 gap-y-10 max-w-7xl">
           <div className="grid md:grid-cols-2 md:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
             <Image
-              src={PlaceholderImage}
-              alt="Placeholder"
+              src="https://picsum.photos/id/45/490/320"
+              alt="Story1"
               width={490}
               height={320}
+              priority
               className="w-full md:h-80 h-56"
             />
             <div className="flex flex-col md:gap-8 gap-6 md:py-2">
@@ -55,10 +55,11 @@ export default function AboutUs() {
               </BeamButton>
             </div>
             <Image
-              src={PlaceholderImage}
-              alt="Placeholder"
+              src="https://picsum.photos/id/96/490/320"
+              alt="Story2"
               width={490}
               height={320}
+              priority
               className="w-full md:h-80 h-56 order-1 md:order-2"
             />
           </div>
