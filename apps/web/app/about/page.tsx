@@ -21,7 +21,7 @@ export default function AboutUs() {
 
         <Container className="md:gap-y-20 gap-y-10 max-w-7xl">
           <div className="grid md:grid-cols-5 xl:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
-            <div className="col-span-3 md:w-full">
+            <div className="md:col-span-3 xl:col-span-1 md:w-full">
               <Image
                 src="https://picsum.photos/id/45/490/320"
                 alt="Story1"
@@ -31,9 +31,9 @@ export default function AboutUs() {
                 className="w-full h-full"
                 />
             </div>
-            <div className="flex flex-col xl:gap-8 gap-6 md:py-2 col-span-2">
+            <div className="flex flex-col xl:gap-8 gap-6 md:py-2 md:col-span-2 xl:col-span-1">
               <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
-              <p className="text-gray-600 max-md:text-sm">
+              <p className="text-sm lg:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco.
@@ -44,26 +44,28 @@ export default function AboutUs() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 md:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
-            <div className="order-2 md:order-1 flex flex-col md:gap-8 gap-6 py-2">
-              <h3 className="md:text-4xl text-2xl font-medium">Title</h3>
-              <p className="text-gray-600 max-md:text-sm">
+          <div className="grid md:grid-cols-5 xl:grid-cols-2 xl:gap-x-20 gap-x-10 gap-y-6 max-md:items-center">
+            <div className="order-2 md:order-1 flex flex-col xl:gap-8 gap-6 md:py-2 md:col-span-2 xl:col-span-1">
+              <h3 className="xl:text-4xl md:text-3xl text-2xl font-medium">Title</h3>
+              <p className="text-sm lg:text-lg">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco.
               </p>
-              <BeamButton variantType="outline" className="md:w-1/5 w-1/3">
+              <BeamButton variantType="outline" className="xl:w-1/5 w-1/3">
                 See more
               </BeamButton>
             </div>
-            <Image
-              src="https://picsum.photos/id/96/490/320"
-              alt="Story2"
-              width={490}
-              height={320}
-              priority
-              className="w-full md:h-80 h-56 order-1 md:order-2"
-            />
+            <div className="col-span-3 xl:col-span-1 md:w-full order-1 md:order-2">
+              <Image
+                src="https://picsum.photos/id/96/490/320"
+                alt="Story2"
+                width={490}
+                height={320}
+                priority
+                className="w-full h-full"
+              />
+            </div>
           </div>
         </Container>
       </div>
