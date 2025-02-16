@@ -10,21 +10,35 @@ export type NavItem = {
   component: JSX.Element;
 };
 
-export const BeamHeader = ({ links }: { links: NavItem[] }) => {
+type BeamHeaderProps = {
+  links: NavItem[];
+  homeLogo?: JSX.Element;
+};
+
+export const BeamHeader = ({ links, homeLogo }: BeamHeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   if (links.length > 4) {
-    throw new Error("Navbar cannot have more than 4 items. Please reduce the number of links.");
+    throw new Error(
+      "Navbar cannot have more than 4 items. Please reduce the number of links."
+    );
   }
 
   const overlayVariants = {
     hidden: { opacity: 0, transition: { duration: 0.1, ease: "easeOut" } },
-    visible: { opacity: 1, transition: { duration: 0.2, ease: "easeInOut", delay: 0.3 } },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.2, ease: "easeInOut", delay: 0.3 },
+    },
   };
 
   const menuVariants = {
     hidden: { y: "-100%", opacity: 0 },
-    visible: { y: "0%", opacity: 1, transition: { duration: 0.25, ease: "easeInOut", delay: 0.15 } },
+    visible: {
+      y: "0%",
+      opacity: 1,
+      transition: { duration: 0.25, ease: "easeInOut", delay: 0.15 },
+    },
   };
 
   return (
@@ -32,12 +46,17 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
       <div className="relative z-50 h-full">
         <div className="container mx-auto px-4 md:px-10 flex items-center justify-between md:justify-normal h-full gap-x-32">
           <div className="flex items-center">
-            <BeamLogoDark className="h-auto w-auto" />
+            {homeLogo ? homeLogo : <BeamLogoDark className="h-auto w-auto" />}
           </div>
 
           <nav className="hidden md:flex items-center gap-x-10">
             {links.map(({ component }, index) => (
-              <BeamButton key={index} variantType="link" asChild className="text-lg">
+              <BeamButton
+                key={index}
+                variantType="link"
+                asChild
+                className="text-lg"
+              >
                 {component}
               </BeamButton>
             ))}
@@ -45,7 +64,11 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
 
           <div className="md:hidden transition-opacity duration-300 ease-in-out">
             <button onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -72,7 +95,12 @@ export const BeamHeader = ({ links }: { links: NavItem[] }) => {
       >
         <nav className="p-6 pt-0 flex flex-col items-center gap-y-6">
           {links.map(({ component }, index) => (
-            <BeamButton key={index} variantType="link" asChild onClick={() => setIsOpen(false)}>
+            <BeamButton
+              key={index}
+              variantType="link"
+              asChild
+              onClick={() => setIsOpen(false)}
+            >
               {component}
             </BeamButton>
           ))}
