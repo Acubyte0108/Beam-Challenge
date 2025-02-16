@@ -1,5 +1,4 @@
 import { Geist, Geist_Mono } from "next/font/google";
-
 import "@workspace/ui/globals.css";
 import { ThemesProvider } from "@workspace/ui/components/customs/themes-provider";
 import {
@@ -7,6 +6,7 @@ import {
   NavItem,
 } from "@workspace/ui/components/beam-components/header";
 import { BeamFooter } from "@workspace/ui/components/beam-components/footer";
+import { BeamLogoDark } from "@workspace/ui/components/beam-components/icons";
 import Link from "next/link";
 
 const fontSans = Geist({
@@ -36,7 +36,14 @@ export default function RootLayout({
       >
         <ThemesProvider>
           <main className="flex flex-col h-screen">
-            <BeamHeader links={nextLinks} />
+            <BeamHeader
+              links={nextLinks}
+              homeLogo={
+                <Link href="/">
+                  <BeamLogoDark className="h-auto w-auto" />
+                </Link>
+              }
+            />
             <div className="flex-1 w-full pt-20">
               {children}
               <BeamFooter />

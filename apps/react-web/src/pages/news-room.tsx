@@ -66,7 +66,7 @@ function NewsRoom({ scrollPosition }: { scrollPosition?: any }) {
 
       <Container>
         <section className="md:py-12 pt-2 pb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {!loading && posts.length === 0 && (
               <div className="col-span-3 text-center text-gray-500 text-lg">
                 No news available at the moment. Please try again later.
