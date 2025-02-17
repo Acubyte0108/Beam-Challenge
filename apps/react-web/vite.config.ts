@@ -21,6 +21,18 @@ export default defineConfig({
     minify: "esbuild",
     rollupOptions: {
       treeshake: true,
+      // https://rollupjs.org/configuration-options/#output-manualchunks
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return "modules";
+          }
+          if (id.includes("src/components")) {
+            return "components";
+          }
+          return "main";
+        },
+      },
     },
   },
   esbuild: {
