@@ -6,8 +6,7 @@ import { Post } from "@/app/api/posts/route";
 const getInitialPosts = async (): Promise<Post[]> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=1&limit=6`,
-      { next: { revalidate: 900 } }
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts?page=1&limit=6`
     );
 
     if (!res.ok) throw new Error(`Failed to fetch news. Status: ${res.status}`);
